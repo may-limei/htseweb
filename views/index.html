@@ -30,7 +30,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Page Top</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -38,19 +38,19 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="#s">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+            <a class="nav-link js-scroll-trigger" href="#">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link js-scroll-trigger" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            <a class="nav-link js-scroll-trigger" href="#">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#">Contact</a>
           </li>
         </ul>
       </div>
@@ -59,14 +59,51 @@
 
   <!-- Header -->
   <header class="masthead">
-    <div class="container">
+    <div id="headerDIV" class="container">
       <div class="intro-text">
-        <div class="intro-lead-in">Welcome To Our Studio!</div>
-        <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+        <!-- <div class="intro-lead-in">Welcome To Our Studio!</div> -->
+        <!-- <div class="intro-heading text-uppercase">It's Nice To Meet You</div> -->
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
       </div>
     </div>
   </header>
+
+  <!-- 高温电解制氢项目简介 -->
+  <section id="htseSection">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">高温电解制氢项目</h2>
+          <h3 class="section-subheading text-muted" style="font-style:normal; line-height:2rem;">基于钍基熔盐堆核能系统的核基高温电解制氢技术的研究</h3>
+          <p class="text-muted" style="text-indent:2rem; text-align:left;">
+            核能制氢团队自2011年以来，致力于核基高温电解制氢技术的研究，完成了1kW级高温电解水蒸气制氢，并开展了模块话5kW级高温电解制氢系统的研制。
+            在前期研究基础上，将开展核能制氢与二氧化碳加氢催化耦合实验台架及基于固体氧化物电极池的高温电解还原二氧化碳研究两项内容。
+          </p>
+          <img class="img-fluid" src="images/5kW-HTSE.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 氢能源简介 -->
+  <section id="H2Section" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">氢能源简介</h2>
+            <h3 class="section-subheading text-muted" style="font-style:normal; line-height:2rem;">对氢能源的介绍。</h3>
+            <p class="text-muted" style="text-indent:2rem; text-align:left;">
+              随着煤、石油、天然气等不可再生能源的储量不断减少，使用化石能源带来的全球气候环境恶化问题不断加剧，各国纷纷制定能源应对策略。
+              及时调整能源消费结构，积极开发清洁能源，占领能源技术领域的新高地，是我国应对能源挑战的关键。
+            </p>
+            <p class="text-muted" style="text-indent:2rem; text-align:left;">
+              氢能源首次写入《政府工作报告》：2019年3月15日下午。。。。。“推动充电、加氢等设施建设”。。。。。2019年有望成为氢产业商业化元年。
+            </p>
+            <img class="img-fluid" src="images/H2-introduction.png" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
 
   <!-- Services -->
   <section id="services">
@@ -708,6 +745,8 @@
 
   <!-- Custom scripts for this template -->
   <script src="javascripts/agency.min.js"></script>
+
+  <script src="javascripts/page-index.js"></script>
 
 </body>
 
