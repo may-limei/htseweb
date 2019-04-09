@@ -1,0 +1,29 @@
+@media (min-width: 540px) {
+  header.masthead {
+    background-image: url("../images/img/header-bg-540.svg");
+  }
+}
+
+@media (min-width: 576px) {
+  header.masthead {
+    background-image: url("../images/img/header-bg-576.svg");
+  }
+}
+
+@media (min-width: 768px) {
+  header.masthead {
+    background-image: url("../images/img/header-bg-768.svg");
+  }
+}
+
+@media (min-width: 992px) {
+  header.masthead {
+    background-image: url("../images/img/header-bg-992.svg");
+  }
+}
+
+@media (min-width: 1200px) {
+  header.masthead {
+    background-image: url("../images/img/header-bg-1200.svg");
+  }
+}
