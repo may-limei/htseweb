@@ -1,10 +1,10 @@
 <?xml version="1.0" standalone="no"?>
-<svg id="diagramSvg" transform="matrix(0.96,0,0,0.96,-16,14)" viewBox="0 0 800 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke-linecap="round" stroke-linejoin="round" fill-rule="evenodd" xml:space="preserve" >
+<svg id="diagramSvg" transform="matrix(0.5,0,0,0.5,250,20)" viewBox="0 0 800 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke-linecap="round" stroke-linejoin="round" fill-rule="evenodd" xml:space="preserve" >
 <rect x="0" y="0" width="800" height="500" fill="black" stroke="none" />
 <g transform="matrix(0.7,0,0,0.7,130,90)">
 <rect x="20" y="15" width="760" height="480" fill="none" stroke="rgb(50,50,50)" />
 <rect x="34" y="5" rx="2" ry="2" width="72" height="20" fill="rgb(230,230,230)" stroke="rgb(230,230,230)" />
-<text x="70" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" stroke="#333333" >工艺流程图1200</text>
+<text x="70" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" stroke="#333333" >工艺流程图320</text>
 <g transform="matrix(1.6,0,0,1.6,-245,-202)">
     <defs >
     <clipPath id="clipId0" >

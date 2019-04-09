@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<svg id="diagramSvg" transform="matrix(1.23,0,0,1.23,-15,-12)" viewBox="0 0 800 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke-linecap="round" stroke-linejoin="round" fill-rule="evenodd" xml:space="preserve" >
+<svg id="diagramSvg" transform="matrix(1.23,0,0,1.23,-19,-12)" viewBox="0 0 800 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke-linecap="round" stroke-linejoin="round" fill-rule="evenodd" xml:space="preserve" >
 <rect x="0" y="0" width="800" height="500" fill="black" stroke="none" />
 <g transform="matrix(0.7,0,0,0.7,130,90)">
 <rect x="20" y="15" width="760" height="480" fill="none" stroke="rgb(50,50,50)" />
