@@ -218,11 +218,8 @@
     option = {
         title: {
             text: '截至2017年全球公共加氢站数量',
+            subtext: '单位：座',
             left: 'center',
-        },
-        legend: {
-          data: ['公共加氢站'],
-          align: 'left',
         },
         color: ['#3398DB'],
         tooltip : {
@@ -243,7 +240,10 @@
                 data : ['日本', '德国', '美国', '法国', '中国', '韩国', '英国', '丹麦', '挪威', '瑞典', '奥地利', '芬兰'],
                 axisTick: {
                     alignWithLabel: true
-                }
+                },
+                axisLabel: {
+                    interval: '0',
+                },
             }
         ],
         yAxis : [
@@ -256,7 +256,13 @@
                 name:'直接访问',
                 type:'bar',
                 barWidth: '60%',
-                data:[94, 45, 20, 14, 12, 12, 11, 8, 4, 4, 2]
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                    }
+                },
+                data:[94, 45, 40, 20, 14, 12, 12, 11, 8, 4, 4, 2]
             }
         ]
     };
