@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('htseweb:server');
 var http = require('http');
+var epics = require('epics');
 
 /**
  * Get port from environment and store in Express.
@@ -20,12 +21,16 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var io = require('socket.io')(server);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+// server.listen(port);
+server.listen(port,'0.0.0.0',function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -88,3 +93,119 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Define PVs
+ */
+var pvs={
+  leds:[
+		{ pvname: "may:led0" }, { pvname: "may:led1" }, { pvname: "may:led2" },
+		{ pvname: "may:led3" }, { pvname: "may:led4" }, { pvname: "may:led5" }, { pvname: "may:newLED" }]
+}
+
+/**
+ * Socket Events for change of value  or severity
+ * 监听变量值的变化或报警状态的变化
+ *  */
+
+var moment = require('moment');
+moment().format('YYYY-MM-DD HH:mm:ss.SSS');
+
+io.on('connection', function (socket) { 
+  connect_pvs(pvs.leds,function(err,results){
+    async.map(results,function(item,callback){
+      item.on("value", function(data) {
+      socket.emit(item.pvName, data);
+      if(!(item.pvName!="may:newLED")){
+        console.log("(Server emit) "+item.pvName+" "+moment().format('YYYY-MM-DD HH:mm:ss.SSS')+" 【"+data+"】");
+      }
+      });  
+    })
+  });
+  
+  connect_pvs_SEVR(pvs.leds,function(err,results){
+    async.map(results,function(item,callback){
+      item.on("value", function(data) {
+      // console.log('Value:',item.pvName,data);
+      socket.emit(item.pvName, data);
+      // console.log(item.pvName+" severity change socket event emit")
+      });  
+    })
+  });
+ 
+  connect_pvs(pvs.ao,function(err,results){
+    async.map(results,function(item,callback){
+      item.on("value", function(data) {
+      // console.log('Value:',item.pvName,data);
+      socket.emit(item.pvName, data);
+      // console.log(item.pvName+" value change socket event emit")
+      });  
+    })
+  });
+  
+  connect_pvs_SEVR(pvs.ao,function(err,results){
+  async.map(results,function(item,callback){
+    item.on("value", function(data) {
+    // console.log('Value:',item.pvName,data);
+    socket.emit(item.pvName, data);
+    // console.log(item.pvName+" value change socket event emit")
+    });  
+  })
+ });
+
+
+  /**
+   *  监测AO :客户端的变量设定
+   *  Monitor AO : configure from the web client;
+   */
+    connect_pvs(pvs.ao,function(err,results){
+      async.map(results,function(item,callback){
+        socket.on(item.pvName, function(data) {
+        console.log('Value:',item.pvName,data);
+        item.put(item.pvName, data);
+        console.log(item.pvName+"Set pv value from web client  ")
+         });  
+        })
+    });
+  
+   });
+
+/**
+ * PV创建并监听异步回调 
+ */
+async= require('async');
+
+function connect_pvs(pvs,callback){
+    async.map(pvs, function(item, callback) {
+       var pv = new epics.Channel(item.pvname);
+       pv.connect(function(err) {
+       if(pv.state()){
+          pv.monitor()};
+          callback(null,pv);
+          if(!(item.pvname!="may:newLED")){
+            console.log(item.pvname+" is connected");
+            console.log("pv.pvName: "+pv.pvName);
+          }       
+      });
+    }, function(err,results){
+         callback(err,results); 
+  });
+};
+
+function connect_pvs_SEVR(pvs,callback){
+    async.map(pvs, function(item, callback) {
+        // console.log(item.pvname+" is connect*");
+       var pv = new epics.Channel(item.pvname+".SEVR");
+       pv.connect(function(err) {
+       if(pv.state()){
+          pv.monitor()};
+          callback(null,pv);
+          // console.log(item.pvname+" alarm severity is monitored");
+      });
+    }, function(err,results){
+         callback(err,results); 
+  });
+};
