@@ -11,6 +11,7 @@
     worldStationOption = {
         title: {
             text: '截至2017年全球公共加氢站数量',
+            subtext: '单位：座',
             left: 'center',
         },
         legend: {
@@ -36,7 +37,10 @@
                 data : ['日本', '德国', '美国', '法国', '中国', '韩国', '英国', '丹麦', '挪威', '瑞典', '奥地利', '芬兰'],
                 axisTick: {
                     alignWithLabel: true
-                }
+                },
+                axisLabel: {
+                    interval: '0',
+                },
             }
         ],
         yAxis : [
@@ -46,7 +50,7 @@
         ],
         series : [
             {
-                name:'直接访问',
+                name:'公共加氢站数量',
                 type:'bar',
                 barWidth: '60%',
                 data:[94, 45, 20, 14, 12, 12, 11, 8, 4, 4, 2]
