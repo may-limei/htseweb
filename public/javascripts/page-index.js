@@ -12,10 +12,9 @@ document.querySelector("#diagramSvg").setAttribute("height",headerH-navH+"px");
 //socket模块和epics变量模块定义
 var serverIP="10.10.33.102";
 var socket = io.connect(serverIP+':3000');
-var pvs = {
-  leds:[
-    { pvname: "may:led0" }, { pvname: "may:led1" }, { pvname: "may:led2" },
-    { pvname: "may:led3" }, { pvname: "may:led4" }, { pvname: "may:led5" }, { pvname:"may:newLED" }]
+var pvs={
+  htsePV:[
+		{ pvname: "may:bang1" }]
 }
 
 /* start - angularJS script */
@@ -36,6 +35,12 @@ app.factory('JsService', function(){
   factory.push = function(arr,item){
     return arr.push(item);
   }
+  factory.pop = function(arr){
+    return arr.pop();
+  }
+  factory.unshift = function(arr,item){
+    return arr.unshift(item);
+  }
   factory.now = function(){
     return moment().format('YYYY-MM-DD HH:mm:ss.SSS');
   }
@@ -45,46 +50,26 @@ app.factory('JsService', function(){
 
 /* start - ledsCtrl */
 app.controller('ledsCtrl', function ($scope, JsService) {
-  $scope.valled=[0,0,1,0,1,1];
-  $scope.led4=4;
-  $scope.led5=5;
-  $scope.newLED=7;
-  $scope.ps=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  $scope.date=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  $scope.ps=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  $scope.date=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  $scope.num=1;
 
-  async.map(pvs.leds, function (item, callback) {
+  async.map(pvs.htsePV, function (item, callback) {
     socket.on(item.pvname, function (data) {
-      $scope.$apply(function () {	//手动出发脏检查。必须有这步才能自动通知angular的module和controller，$scope.bang发生变化了。详见腾讯课堂教程《$scope》节
-        switch (item.pvname) {
-          case "may:led0":
-            $scope.valled[0]=data;
-            break;
-          case "may:led1":
-            $scope.valled[1]=data;
-            break;
-          case "may:led2":
-            $scope.valled[2]=data;
-            break;
-          case "may:led3":
-            $scope.valled[3]=data;
-            break;
-          case "may:led4":
-            $scope.led4=data;
-            break;
-          case "may:led5":
-            $scope.led5=data;
-            break;
-          case "may:newLED":
-            $scope.newLED=data;
-            JsService.shift($scope.ps);
-            JsService.push($scope.ps,data);
-            JsService.shift($scope.date);
-            JsService.push($scope.date,JsService.now());
-            break;
-          default:
-            break;
-        }					
-
+      $scope.$apply(function () {
+        if($scope.num<27){
+          $scope.num=$scope.num+1;
+        } else {
+          $scope.num=1;
+        }
+        // JsService.shift($scope.ps);
+        // JsService.push($scope.ps,(data/$scope.num).toFixed(1));
+        // JsService.shift($scope.date);
+        // JsService.push($scope.date,JsService.now());
+        JsService.pop($scope.ps);
+        JsService.unshift($scope.ps,(data*$scope.num).toFixed(1));
+        JsService.pop($scope.date);
+        JsService.unshift($scope.date,JsService.now());
       })
       //***end of $scope.$apply***//
     });

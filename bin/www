@@ -101,9 +101,8 @@ function onListening() {
  * Define PVs
  */
 var pvs={
-  leds:[
-		{ pvname: "may:led0" }, { pvname: "may:led1" }, { pvname: "may:led2" },
-		{ pvname: "may:led3" }, { pvname: "may:led4" }, { pvname: "may:led5" }, { pvname: "may:newLED" }]
+  htsePV:[
+		{ pvname: "may:bang1" }]
 }
 
 /**
@@ -115,23 +114,22 @@ var moment = require('moment');
 moment().format('YYYY-MM-DD HH:mm:ss.SSS');
 
 io.on('connection', function (socket) { 
-  connect_pvs(pvs.leds,function(err,results){
+  connect_pvs(pvs.htsePV,function(err,results){
     async.map(results,function(item,callback){
       item.on("value", function(data) {
+        console.log('Value:',item.pvName,data);
       socket.emit(item.pvName, data);
-      if(!(item.pvName!="may:newLED")){
-        console.log("(Server emit) "+item.pvName+" "+moment().format('YYYY-MM-DD HH:mm:ss.SSS')+" 【"+data+"】");
-      }
+        console.log(item.pvName+" value change socket event emit")
       });  
     })
   });
   
-  connect_pvs_SEVR(pvs.leds,function(err,results){
+  connect_pvs_SEVR(pvs.htsePV,function(err,results){
     async.map(results,function(item,callback){
       item.on("value", function(data) {
-      // console.log('Value:',item.pvName,data);
+        console.log('Value:',item.pvName,data);
       socket.emit(item.pvName, data);
-      // console.log(item.pvName+" severity change socket event emit")
+        console.log(item.pvName+" value change socket event emit")
       });  
     })
   });
