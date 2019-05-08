@@ -108,3 +108,8 @@ function whichElement(e){
     }
   }
 }
+
+window.onload=function startup(){
+  var el=document.getElementById("diagramContainer");
+  el.addEventListener("touchstart", whichElement, false);
+}
