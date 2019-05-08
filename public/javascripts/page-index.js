@@ -46,6 +46,18 @@ app.factory('JsService', function(){
   }
   return factory;
 });
+// app.factory('JsFunction', function(){
+//   var factory = {};
+//   factory.whichElement = function whichElement(e){
+//     // alert("You clicked on a " + tname + " element.")
+//     e.target.parentNode.style.stroke="green";
+//     e.target.parentNode.style.fill="green";
+//     if(e.target.tagName=="rect") {
+//       e.target.style.stroke="black";
+//     }
+//   }
+//   return factory;
+// });
 /* end - 自定义函数factory =>  使用一些JS语法或函数*/
 
 /* start - ledsCtrl */
@@ -53,6 +65,7 @@ app.controller('ledsCtrl', function ($scope, JsService) {
   $scope.ps=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   $scope.date=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   $scope.num=1;
+  $scope.valveColor="orange";
 
   async.map(pvs.htsePV, function (item, callback) {
     socket.on(item.pvname, function (data) {
@@ -62,10 +75,6 @@ app.controller('ledsCtrl', function ($scope, JsService) {
         } else {
           $scope.num=1;
         }
-        // JsService.shift($scope.ps);
-        // JsService.push($scope.ps,(data/$scope.num).toFixed(1));
-        // JsService.shift($scope.date);
-        // JsService.push($scope.date,JsService.now());
         JsService.pop($scope.ps);
         JsService.unshift($scope.ps,(data*$scope.num).toFixed(1));
         JsService.pop($scope.date);
@@ -77,10 +86,23 @@ app.controller('ledsCtrl', function ($scope, JsService) {
   });
   //***end of async.map***//
 //需要绑定$scope但不需要脏检查的程序写在这里
+// app.controller('JsClick',function($scope,JsFunction){
+//   $scope.setValveColor = function(volveColor) {
+//     JsFunction.whichElement(e);
+//   }
+// })
 
 }, function (err, results) {
   callback(err, results);
 });
 /* end - ledsCtrl */
-
 /* end - angularJS script */
+
+function whichElement(e){
+  // alert("You clicked on a " + tname + " element.")
+  e.target.parentNode.style.stroke=(e.target.parentNode.style.stroke=="red"? "orange" : "red");
+  e.target.parentNode.style.fill=(e.target.parentNode.style.fill=="red"? "orange" : "red");
+  if(e.target.tagName=="rect") {
+    e.target.style.stroke="black";
+  }
+}

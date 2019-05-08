@@ -62,7 +62,7 @@
 
   <!-- Header -->
   <header id="header" class="masthead" style="background-color:black; position:relative;">
-    <div id="diagramContainer" class="flex-h" style="position:absolute; bottom:0.4rem;">
+    <div onmousedown="whichElement(event)" id="diagramContainer" class="flex-h" style="position:absolute; bottom:0.4rem;">
       <svg class="flex-hc flex-vc" id="diagramSvg" preserveAspectRation="xMinYMin meet" transform="matrix(1,0,0,1,0,0)" viewBox="0 0 800 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke-linecap="round" stroke-linejoin="round" fill-rule="evenodd" xml:space="preserve" >
       <rect x="0" y="0" width="800" height="500" fill="black" stroke="none" />
       <g transform="matrix(0.99,0,0,0.99,4,8)">
@@ -448,19 +448,19 @@
           <g stroke-width="0.6" clip-path="url(#clipId0)" fill="none" stroke="rgb(255,255,0)" >
           <polyline points="232.614,294.063 243.442,294.063 243.442,305.616 232.614,305.616 232.614,294.063 " />
           </g>
-          <g transform="matrix(1,0,0,1,-20,0)" stroke-width="0.15" clip-path="url(#clipId0)" fill="none" stroke="rgb(255,0,0)" >
-          <polyline points="285.441,155.737 285.441,152.189 " />
-          <polyline points="288.134,157.287 288.134,154.187 " />
-          <polyline points="288.134,154.187 282.748,157.287 " />
-          <polyline points="282.748,157.287 282.748,154.187 " />
-          <polyline points="282.748,154.187 288.134,157.287 " />
-          <polyline points="288.845,157.287 288.845,154.187 " />
-          <polyline points="282.037,157.287 282.037,154.187 " />
-          <polyline points="287.107,153.071 283.774,153.071 " />
-          <polyline points="287.107,153.071 287.107,151.307 " />
-          <polyline points="287.107,151.307 283.774,151.307 " />
-          <polyline points="283.774,153.071 283.774,151.307 " />
-          <polyline points="287.107,152.189 283.774,152.189 " />
+          <g transform="matrix(1,0,0,1,-20,0)" stroke-width="0.15" clip-path="url(#clipId0)" fill="red" stroke="red" >
+          <polyline points="285.441,155.737 285.441,152.189 " stroke-width="0.5"/>
+          <polyline points="288.134,157.287 288.134,154.187 " stroke-width="0.5"/>
+          <polyline points="288.134,154.187 282.748,157.287 " stroke-width="0.5"/>
+          <polyline points="282.748,157.287 282.748,154.187 " stroke-width="0.5"/>
+          <polyline points="282.748,154.187 288.134,157.287 " stroke-width="0.5"/>
+          <polyline points="288.845,157.287 288.845,154.187 " stroke-width="0.5"/>
+          <polyline points="282.037,157.287 282.037,154.187 " stroke-width="0.5"/>
+          <polyline points="287.107,153.071 283.774,153.071 " stroke-width="0.5"/>
+          <polyline points="287.107,153.071 287.107,151.307 " stroke-width="0.5"/>
+          <polyline points="287.107,151.307 283.774,151.307 " stroke-width="0.5"/>
+          <polyline points="283.774,153.071 283.774,151.307 " stroke-width="0.5"/>
+          <polyline points="287.107,152.189 283.774,152.189 " stroke-width="0.5"/>
           </g>
           <g stroke-width="1.8" clip-path="url(#clipId0)" fill="none" stroke="rgb(255,0,0)" >
           <polyline points="262.037,172.167 204.239,172.528 " />
@@ -897,34 +897,41 @@
           <polyline points="204.239,172.528 200.906,175.86 " />
           <polyline points="200.906,169.195 204.239,172.528 " />
           </g>
-          <g stroke-width="0.15" clip-path="url(#clipId0)" fill="none" stroke="rgb(255,0,0)" >
-          <polyline points="374.776,259.293 374.776,256.627 " />
-          <polyline points="377.469,260.843 377.469,257.744 " />
-          <polyline points="377.469,257.744 372.083,260.843 " />
-          <polyline points="372.083,260.843 372.083,257.744 " />
-          <polyline points="372.083,257.744 377.469,260.843 " />
-          <polyline points="376.518,256.627 373.034,256.627 " />
-          <polyline points="378.18,260.843 378.18,257.744 " />
-          <polyline points="371.372,260.843 371.372,257.744 " />
-          <path d="M373.034,256.627  A1.74231,1.74231 0 0,1 376.518,256.627 " />
-          <polyline points="411.237,290.605 411.237,287.939 " />
-          <polyline points="413.931,292.155 413.931,289.056 " />
-          <polyline points="413.931,289.056 408.544,292.155 " />
-          <polyline points="408.544,292.155 408.544,289.056 " />
-          <polyline points="408.544,289.056 413.931,292.155 " />
-          <polyline points="412.98,287.939 409.495,287.939 " />
-          <polyline points="414.642,292.155 414.642,289.056 " />
-          <polyline points="407.833,292.155 407.833,289.056 " />
-          <path d="M409.495,287.939  A1.74231,1.74231 0 0,1 412.98,287.939 " />
-          <polyline points="536.84,345.46 536.84,342.794 " />
-          <polyline points="539.534,347.01 539.534,343.91 " />
-          <polyline points="539.534,343.91 534.147,347.01 " />
-          <polyline points="534.147,347.01 534.147,343.91 " />
-          <polyline points="534.147,343.91 539.534,347.01 " />
-          <polyline points="538.582,342.794 535.098,342.794 " />
-          <polyline points="540.245,347.01 540.245,343.91 " />
-          <polyline points="533.436,347.01 533.436,343.91 " />
-          <path d="M535.098,342.794  A1.74231,1.74231 0 0,1 538.582,342.794 " />
+          <g stroke-width="0.15" clip-path="url(#clipId0)" fill={{valveColor}} stroke={{valveColor}}>
+            <rect x="370.75" y="254.5" width="8" height="7" fill="black" stroke="black"/>
+            <polyline points="374.776,259.293 374.776,256.627 " stroke-width="0.5"/>
+            <polyline points="377.469,260.843 377.469,257.744 " stroke-width="0.5"/>
+            <polyline points="377.469,257.744 372.083,260.843 " stroke-width="0.5"/>
+            <polyline points="372.083,260.843 372.083,257.744 " stroke-width="0.5"/>
+            <polyline points="372.083,257.744 377.469,260.843 " stroke-width="0.5"/>
+            <polyline points="376.518,256.627 373.034,256.627 " stroke-width="0.5"/>
+            <polyline points="378.18,260.843 378.18,257.744 " stroke-width="0.5"/>
+            <polyline points="371.372,260.843 371.372,257.744 " stroke-width="0.5"/>
+            <path d="M373.034,256.627  A1.74231,1.74231 0 0,1 376.518,256.627 " stroke-width="0.5"/>
+          </g>
+          <g stroke-width="0.15" clip-path="url(#clipId0)" fill={{valveColor}} stroke={{valveColor}}>
+            <rect x="407.5" y="285" width="8" height="8" fill="black" stroke="black"/>
+            <polyline points="411.237,290.605 411.237,287.939 " stroke-width="0.5"/>
+            <polyline points="413.931,292.155 413.931,289.056 " stroke-width="0.5"/>
+            <polyline points="413.931,289.056 408.544,292.155 " stroke-width="0.5"/>
+            <polyline points="408.544,292.155 408.544,289.056 " stroke-width="0.5"/>
+            <polyline points="408.544,289.056 413.931,292.155 " stroke-width="0.5"/>
+            <polyline points="412.98,287.939 409.495,287.939 " stroke-width="0.5"/>
+            <polyline points="414.642,292.155 414.642,289.056 " stroke-width="0.5"/>
+            <polyline points="407.833,292.155 407.833,289.056 " stroke-width="0.5"/>
+            <path d="M409.495,287.939  A1.74231,1.74231 0 0,1 412.98,287.939 " stroke-width="0.5"/>
+          </g>
+          <g stroke-width="0.15" clip-path="url(#clipId0)" fill={{valveColor}} stroke={{valveColor}}>
+            <rect x="533" y="341" width="8" height="7.5" fill="black" stroke="black"/>
+            <polyline points="536.84,345.46 536.84,342.794 " stroke-width="0.5"/>
+            <polyline points="539.534,347.01 539.534,343.91 " stroke-width="0.5"/>
+            <polyline points="539.534,343.91 534.147,347.01 " stroke-width="0.5"/>
+            <polyline points="534.147,347.01 534.147,343.91 " stroke-width="0.5"/>
+            <polyline points="534.147,343.91 539.534,347.01 " stroke-width="0.5"/>
+            <polyline points="538.582,342.794 535.098,342.794 " stroke-width="0.5"/>
+            <polyline points="540.245,347.01 540.245,343.91 " stroke-width="0.5"/>
+            <polyline points="533.436,347.01 533.436,343.91 " stroke-width="0.5"/>
+            <path d="M535.098,342.794  A1.74231,1.74231 0 0,1 538.582,342.794 " stroke-width="0.5"/>
           </g>
           <g stroke-width="0.75" clip-path="url(#clipId0)" fill="none" stroke="rgb(255,255,255)" >
           <polyline points="604.591,348.647 624.501,348.647 " />
@@ -1321,32 +1328,6 @@
       </div>
     </div>
   </section>
-
-  <div>
-		<h2> 这是epicsCA的web接口测试</h2><br />
-		<h3> PV变量may:newLED更新情况如下：</h3>
-		<p class="p" >{{date[0]}} &nbsp&nbsp {{ps[0]}}</p>
-		<p class="p" >{{date[1]}} &nbsp&nbsp {{ps[1]}}</p>
-		<p class="p" >{{date[2]}} &nbsp&nbsp {{ps[2]}}</p>
-		<p class="p" >{{date[3]}} &nbsp&nbsp {{ps[3]}}</p>
-		<p class="p" >{{date[4]}} &nbsp&nbsp {{ps[4]}}</p>
-		<p class="p" >{{date[5]}} &nbsp&nbsp {{ps[5]}}</p>
-		<p class="p" >{{date[6]}} &nbsp&nbsp {{ps[6]}}</p>
-		<p class="p" >{{date[7]}} &nbsp&nbsp {{ps[7]}}</p>
-		<p class="p" >{{date[8]}} &nbsp&nbsp {{ps[8]}}</p>
-		<p class="p" >{{date[9]}} &nbsp&nbsp {{ps[9]}}</p>
-		<p class="p" >{{date[10]}} &nbsp&nbsp {{ps[10]}}</p>
-		<p class="p" >{{date[11]}} &nbsp&nbsp {{ps[11]}}</p>
-		<p class="p" >{{date[12]}} &nbsp&nbsp {{ps[12]}}</p>
-		<p class="p" >{{date[13]}} &nbsp&nbsp {{ps[13]}}</p>
-		<p class="p" >{{date[14]}} &nbsp&nbsp {{ps[14]}}</p>
-		<p class="p" >{{date[15]}} &nbsp&nbsp {{ps[15]}}</p>
-		<p class="p" >{{date[16]}} &nbsp&nbsp {{ps[16]}}</p>
-		<p class="p" >{{date[17]}} &nbsp&nbsp {{ps[17]}}</p>
-		<p class="p" >{{date[18]}} &nbsp&nbsp {{ps[18]}}</p>
-		<p class="p" >{{date[19]}} &nbsp&nbsp {{ps[19]}}</p>
-		<p class="p" >{{date[20]}} &nbsp&nbsp {{ps[20]}}</p>
-  </div>
 
   <!-- Footer -->
   <footer style="padding:0.3rem 0;">
