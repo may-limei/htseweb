@@ -65,7 +65,7 @@ app.controller('ledsCtrl', function ($scope, JsService) {
   $scope.ps=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   $scope.date=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   $scope.num=1;
-  $scope.valveColor="orange";
+  $scope.valveColor="red";
 
   async.map(pvs.htsePV, function (item, callback) {
     socket.on(item.pvname, function (data) {
@@ -100,9 +100,11 @@ app.controller('ledsCtrl', function ($scope, JsService) {
 
 function whichElement(e){
   // alert("You clicked on a " + tname + " element.")
-  e.target.parentNode.style.stroke=(e.target.parentNode.style.stroke=="red"? "orange" : "red");
-  e.target.parentNode.style.fill=(e.target.parentNode.style.fill=="red"? "orange" : "red");
-  if(e.target.tagName=="rect") {
-    e.target.style.stroke="black";
+  if(e.target.className.baseVal=="volve" || e.target.parentNode.className.baseVal=="volve"){
+    e.target.parentNode.style.stroke=(e.target.parentNode.style.stroke=="red"? "orange" : "red");
+    e.target.parentNode.style.fill=(e.target.parentNode.style.fill=="red"? "orange" : "red");
+    if(e.target.tagName=="rect") {
+      e.target.style.stroke="black";
+    }
   }
 }
